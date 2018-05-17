@@ -1,0 +1,14 @@
+#!/bin/bash
+
+echo "Enter your name"
+read name
+echo "Enter your birdth date"
+read date
+echo "Enter your address"
+read address
+month=$(echo $date | cut -f2 -d .)
+day=$(echo $date | cut -f1 -d .)
+year=$(echo $date | cut -f3 -d .) 
+echo "name: $name"
+echo "birdth date: year $year day $day month $month"
+echo "address: $address"
