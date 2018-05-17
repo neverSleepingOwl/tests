@@ -1,0 +1,3 @@
+#!/bin/bash
+
+find . -type f -name "[aA]*" -o -name "*my*" 2> /dev/null

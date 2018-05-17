@@ -1,0 +1,24 @@
+#!/bin/bash
+
+storage="/export/home/ovs2/install"
+touch $storage
+if [[ "$1" = "-l" ]] 
+then
+	cat $storage
+	exit 0
+fi
+echo "Enter program to install"
+read program
+echo "Enter directory to install"
+read directory
+if [ ! -d "$directory" ]
+then
+    echo "Error, doesn't exist"
+    exit 1
+fi
+path="$directory/$(basename ${program})"
+cp $program $directory
+if [[ -z "$(grep -i ${program} ${storage})" ]]
+then
+	echo $path >> $storage
+fi

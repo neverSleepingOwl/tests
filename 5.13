@@ -1,0 +1,23 @@
+#!/bin/bash
+if (( $# < 1 ))
+then
+    echo "NO ARGUMENTS"
+    exit
+fi
+if [[ "$#" == "1" ]]
+then
+   DIR="."
+else
+   DIR="$2" 
+fi
+if [[ ! -d "$DIR" ]] 
+then
+    echo "DIRECTORY DOESN'T EXIST"
+    exit 1 
+fi
+if [ -e "$DIR/$1" ]
+then
+    echo "file exists type: $(file ${DIR}/${1})"
+else
+    echo "file doesn't exist"
+fi

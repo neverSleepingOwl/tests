@@ -1,0 +1,25 @@
+#!/bin/bash
+
+FILE=$1
+if [[ ! -f "$FILE" ]] 
+then
+    echo "error"
+    exit 1
+fi
+flag=1
+rm tmp.dat
+touch tmp.dat
+while read px; do
+    while read ax; do
+        if [[ "$ax" == "$px" ]]
+        then
+            flag=0
+        fi
+    done < tmp.dat
+    if [ "$flag" -eq "1" ]
+    then
+        echo $px >> tmp.dat
+    fi
+    flag=1 
+done < $FILE
+cat tmp.dat > $FILE

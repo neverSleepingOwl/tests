@@ -1,0 +1,5 @@
+#!/bin/bash
+
+Y="UNIX"
+test $"Y" = "UNIX"
+echo $?
