@@ -1,0 +1,21 @@
+#!/bin/bash
+
+storage="/export/home/ovs2/install"
+touch $storage
+
+echo "Enter program to remove"
+read program
+
+path=$(grep -i ${program} ${storage})
+if [[ -n "$path" ]]
+then
+    rm $path
+    while read ax; do
+        if [[ "$ax" != "$path" ]]
+        then
+            echo "$ax" >> tmp.dat
+        fi
+    done < $storage
+    cat tmp.dat > $storage
+    rm tmp.dat
+fi

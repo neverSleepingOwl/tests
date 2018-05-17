@@ -18,6 +18,7 @@ then
 fi
 path="$directory/$(basename ${program})"
 cp $program $directory
+# todo проверить exit code
 if [[ -z "$(grep -i ${program} ${storage})" ]]
 then
 	echo $path >> $storage

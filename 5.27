@@ -23,3 +23,4 @@ while read px; do
     flag=1 
 done < $FILE
 cat tmp.dat > $FILE
+rm tmp.dat
