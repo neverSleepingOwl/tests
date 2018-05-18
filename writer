@@ -1,0 +1,14 @@
+#!/bin/bash
+
+x=true
+user=$1
+date_time=$2
+message=$3
+while [[ "$x" = "true" ]]; do
+	sleep 1
+    cur_date=$(date +%R)
+	if [[ "$date_time" = "$cur_date" ]]; then
+		echo $message | write $user
+		x="false"
+	fi
+done &
